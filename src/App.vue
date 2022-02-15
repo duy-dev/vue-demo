@@ -1,9 +1,11 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+  <a-config-provider :locale="locale">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view />
+  </a-config-provider>
 </template>
 
 <style lang="scss">
@@ -28,3 +30,20 @@
   }
 }
 </style>
+
+<script lang="ts">
+import vi_VN from "ant-design-vue/es/locale/vi_VN";
+import dayjs from "dayjs";
+import "dayjs/locale/vi";
+dayjs.locale("vi");
+
+export default {
+  data() {
+    console.log(vi_VN);
+
+    return {
+      locale: vi_VN,
+    };
+  },
+};
+</script>
