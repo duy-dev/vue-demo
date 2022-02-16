@@ -1,46 +1,17 @@
 <template>
   <div class="hello">
     <h1 class="bg-secondary">{{ msg }}</h1>
-    <a-button type="primary">Primary Button</a-button>
-    <a-date-picker v-model:value="value1" :locale="locale" />
+    <p>{{ $t("test.language") }}</p>
+    <a-button type="primary" @click="changeLocale()">{{
+      $t("common.select_lang")
+    }}</a-button>
+    <a-date-picker v-model:value="value1" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import type { Dayjs } from "dayjs";
-import vi_VN from "ant-design-vue/es/date-picker/locale/zh_CN";
-import dayjs from "dayjs";
-import "dayjs/locale/vi";
-import updateLocale from "dayjs/plugin/updateLocale";
-dayjs.extend(updateLocale);
-
-dayjs.locale("vi");
-dayjs.updateLocale("vi", {
-  months: [
-    "Tháng 1",
-    "Tháng 2",
-    "Tháng 3",
-    "Tháng 4",
-    "Tháng 5",
-    "Tháng 6",
-    "Tháng 7",
-    "Tháng 8",
-    "Tháng 9",
-    "Tháng 10",
-    "Tháng 11",
-    "Tháng 12",
-  ],
-  weekdays: [
-    "Thứ hai",
-    "Thứ ba",
-    "Thứ tư",
-    "Thứ năm",
-    "Thứ sau",
-    "Thứ bảy",
-    "Chủ nhật",
-  ],
-});
 
 export default defineComponent({
   name: "HelloWorld",
@@ -49,12 +20,18 @@ export default defineComponent({
   },
 
   setup() {
-    console.log(dayjs);
-
     return {
       value1: ref<Dayjs>(),
-      locale: vi_VN,
     };
+  },
+  methods: {
+    changeLocale() {
+      if (this.$i18n.locale === "vi") {
+        this.$i18n.locale = "en";
+      } else {
+        this.$i18n.locale = "vi";
+      }
+    },
   },
 });
 </script>

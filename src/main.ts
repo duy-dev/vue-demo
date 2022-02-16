@@ -2,21 +2,25 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import VueI18n from "vue-i18n";
+
+// language
+import { i18n } from "@/assets/lang/i18n";
 
 import "./assets/styles/reset.scss";
 import "./assets/styles/tailwind.scss";
 import "./assets/styles/global.scss";
 
-import { Button, DatePicker } from "ant-design-vue";
+import { Button, DatePicker, ConfigProvider } from "ant-design-vue";
 
 // style antd
 import "ant-design-vue/lib/button/style";
 
-import Vue from "vue";
-
 const app = createApp(App);
 
+app.use(i18n);
+app.use(ConfigProvider);
 app.use(Button);
 app.use(DatePicker);
 app.use(store).use(router).mount("#app");
+
+export { app };

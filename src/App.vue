@@ -1,9 +1,9 @@
 <template>
+  <div id="nav">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </div>
   <a-config-provider :locale="locale">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view />
   </a-config-provider>
 </template>
@@ -39,7 +39,7 @@ dayjs.locale("vi");
 
 export default {
   data() {
-    console.log(vi_VN);
+    //ConfigProvider.console.log(vi_VN);
 
     return {
       locale: vi_VN,
