@@ -1,10 +1,13 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <a-config-provider :locale="locale">
-    <router-view />
+  <a-config-provider :locale="language">
+    <component :is="layout">
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link> |
+        <router-link to="/login">Login</router-link>
+      </div>
+      <router-view />
+    </component>
   </a-config-provider>
 </template>
 
@@ -32,17 +35,18 @@
 </style>
 
 <script lang="ts">
-import vi_VN from "ant-design-vue/es/locale/vi_VN";
-import dayjs from "dayjs";
-import "dayjs/locale/vi";
-dayjs.locale("vi");
+import { useStore } from "vuex";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
 
 export default {
-  data() {
-    //ConfigProvider.console.log(vi_VN);
+  setup() {
+    const store = useStore();
+    const route = useRoute();
 
     return {
-      locale: vi_VN,
+      language: computed(() => store.state.language.language),
+      layout: computed(() => (route.meta.layout || "default") + "-layout"),
     };
   },
 };

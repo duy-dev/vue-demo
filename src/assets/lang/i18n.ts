@@ -11,4 +11,8 @@ const i18n = createI18n({
   },
 });
 
-export { i18n };
+function changeLanguage(): void {
+  console.log("a2");
+}
+
+export { i18n, changeLanguage };
