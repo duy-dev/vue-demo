@@ -11,11 +11,18 @@ import "./assets/styles/reset.scss";
 import "./assets/styles/tailwind.scss";
 import "./assets/styles/global.scss";
 
-import { Button, DatePicker, ConfigProvider, Select } from "ant-design-vue";
+import {
+  Button,
+  DatePicker,
+  ConfigProvider,
+  Select,
+  Breadcrumb,
+} from "ant-design-vue";
 
 // style antd
 import "ant-design-vue/lib/button/style";
 import "ant-design-vue/lib/select/style";
+import "ant-design-vue/lib/breadcrumb/style";
 
 const app = createApp(App);
 
@@ -24,6 +31,7 @@ app.use(ConfigProvider);
 app.use(Button);
 app.use(DatePicker);
 app.use(Select);
+app.use(Breadcrumb);
 
 registerGlobalComponents(app);
 app.use(store).use(router).mount("#app");

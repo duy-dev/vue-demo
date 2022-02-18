@@ -2,9 +2,9 @@
   <a-config-provider :locale="language">
     <component :is="layout">
       <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link> |
-        <router-link to="/login">Login</router-link>
+        <router-link :to="{ name: 'home-index' }">Home</router-link> |
+        <router-link :to="{ name: 'about-index' }">About</router-link> |
+        <router-link :to="{ name: 'login-index' }">Login</router-link>
       </div>
       <router-view />
     </component>
