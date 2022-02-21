@@ -1,33 +1,40 @@
 <template>
   <a-breadcrumb>
-    <a-breadcrumb-item>Home</a-breadcrumb-item>
-    <a-breadcrumb-item><a href="">Application Center</a></a-breadcrumb-item>
-    <a-breadcrumb-item><a href="">Application List</a></a-breadcrumb-item>
-    <a-breadcrumb-item>An Application</a-breadcrumb-item>
+    <a-breadcrumb-item
+      ><router-link :to="{ name: 'home-index' }"
+        >Trang chủ</router-link
+      ></a-breadcrumb-item
+    >
+    <a-breadcrumb-item v-for="(path, index) in pathsBreadcrumb" :key="index"
+      ><router-link :to="{ name: path?.name }">{{
+        path?.title
+      }}</router-link></a-breadcrumb-item
+    >
   </a-breadcrumb>
 </template>
 
 <script lang="ts">
-import { defineComponent, watch } from "vue";
+import { defineComponent, watch, ref, computed } from "vue";
 
 import { useRoute } from "vue-router";
 export default defineComponent({
-  // props: {
-  //   breadcrumb: {
-  //     type: String,
-  //     required: true,
-  //   },
-  // },
-
   setup() {
     const route = useRoute();
-    console.log(route);
-    watch(route, (pa) => {
-      console.log(pa);
+    let listPath = ref(route.matched);
+    watch(route, (newRoute) => {
+      listPath.value = newRoute.matched;
     });
-    //console.log(route);
 
-    return {};
+    const pathsBreadcrumb = computed(() => {
+      let pathsFilter = listPath.value
+        .filter((value) => value.meta.breadcrumb)
+        .map((value) => value.meta.breadcrumb);
+      return pathsFilter;
+    });
+
+    return {
+      pathsBreadcrumb,
+    };
   },
 });
 </script>

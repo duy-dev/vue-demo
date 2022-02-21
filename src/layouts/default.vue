@@ -1,9 +1,15 @@
 <template>
   <h1>Default layout</h1>
+  <Breadcrumb />
   <slot />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-export default defineComponent({});
+import Breadcrumb from "@/components/Breadcrumb.vue";
+export default defineComponent({
+  components: {
+    Breadcrumb,
+  },
+});
 </script>

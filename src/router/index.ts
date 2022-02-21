@@ -14,6 +14,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/about",
     component: Resource,
+    meta: {
+      breadcrumb: {
+        title: "About",
+        name: "about-index",
+      },
+    },
     children: [
       {
         path: "",
@@ -25,23 +31,49 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: "pets",
-        name: "about-pets",
-        component: () => import("../pages/Pets.vue"),
-        meta: {
-          layout: "default",
-        },
-      },
-      {
-        path: "pets",
         component: Resource,
+        meta: {
+          breadcrumb: {
+            title: "Pets",
+            name: "about-pets",
+          },
+        },
         children: [
           {
-            path: "dog",
-            name: "about-pets-dog",
-            component: () => import("../pages/Dog.vue"),
+            path: "",
+            name: "about-pets",
+            component: () => import("../pages/Pets.vue"),
             meta: {
               layout: "default",
             },
+          },
+          {
+            path: "dog",
+            component: Resource,
+            meta: {
+              breadcrumb: {
+                title: "Dog",
+                name: "about-pets-dog",
+              },
+            },
+            children: [
+              {
+                path: "",
+                name: "about-pets-dog",
+                component: () => import("../pages/dog/Index.vue"),
+                meta: {
+                  layout: "default",
+                },
+              },
+              {
+                path: ":id",
+                name: "about-pets-dog-detail",
+                component: () => import("../pages/dog/Detail.vue"),
+                meta: {
+                  layout: "default",
+                },
+              },
+            ],
           },
         ],
       },
@@ -50,14 +82,6 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/login",
     name: "login-index",
-    component: () => import("../pages/Login.vue"),
-    meta: {
-      layout: "auth",
-    },
-  },
-  {
-    path: "/about/pets/login",
-    name: "login-index-pet",
     component: () => import("../pages/Login.vue"),
     meta: {
       layout: "auth",
