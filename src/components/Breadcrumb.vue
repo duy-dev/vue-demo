@@ -6,36 +6,30 @@
       ></a-breadcrumb-item
     >
     <a-breadcrumb-item v-for="(path, index) in pathsBreadcrumb" :key="index"
-      ><router-link :to="{ name: path?.name }">{{
-        path?.title
+      ><router-link :to="{ name: path.name }">{{
+        path.title
       }}</router-link></a-breadcrumb-item
     >
   </a-breadcrumb>
 </template>
 
-<script lang="ts">
-import { defineComponent, watch, ref, computed } from "vue";
+<script lang="ts" setup>
+import { watch, ref, computed } from "vue";
+import { RouteLocationMatched, useRoute } from "vue-router";
 
-import { useRoute } from "vue-router";
-export default defineComponent({
-  setup() {
-    const route = useRoute();
-    let listPath = ref(route.matched);
-    watch(route, (newRoute) => {
-      listPath.value = newRoute.matched;
-    });
+type PathBreadcrumb = RouteLocationMatched & { title: string };
 
-    const pathsBreadcrumb = computed(() => {
-      let pathsFilter = listPath.value
-        .filter((value) => value.meta.breadcrumb)
-        .map((value) => value.meta.breadcrumb);
-      return pathsFilter;
-    });
+const route = useRoute();
+let listPath = ref(route.matched);
 
-    return {
-      pathsBreadcrumb,
-    };
-  },
+watch(route, (newRoute) => {
+  listPath.value = newRoute.matched;
+});
+const pathsBreadcrumb = computed((): PathBreadcrumb[] => {
+  let pathsFilter = (
+    listPath.value.filter((value) => value.meta.breadcrumb) as PathBreadcrumb[]
+  ).map((value) => value.meta.breadcrumb) as PathBreadcrumb[];
+  return pathsFilter;
 });
 </script>
 

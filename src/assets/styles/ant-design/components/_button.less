@@ -1,0 +1,42 @@
+@btn-primary-color: var(--cl-gray-100);
+@btn-primary-bg: var(--cl-secondary-600);
+
+.ant-btn {
+  &:hover {
+    background: var(--cl-gray-35);
+    color: var(--cl-gray-100);
+    border-color: var(--cl-gray-35);
+  }
+}
+
+.ant-btn-primary {
+  &:hover {
+    background: var(--cl-secondary-800);
+  }
+}
+
+.ant-btn-dangerous.ant-btn-primary {
+  &:hover {
+    background: var(--cl-red-800);
+    border-color: var(--cl-red-800);
+  }
+}
+
+// default button
+@btn-default-color: var(--cl-gray-55);
+@btn-default-bg: @component-background;
+@btn-default-border: var(--cl-gray-75);
+
+// danger button
+@btn-danger-color: var(--cl-red-100);
+@btn-danger-bg: var(--cl-red-500);
+@btn-danger-border: var(--cl-red-500);
+
+// disable button
+@btn-disable-color: var(--cl-gray-55);
+@btn-disable-bg: var(--cl-gray-85);
+@btn-disable-border: var(--cl-gray-75);
+
+// small button
+@btn-padding-horizontal-base: 16px;
+@btn-padding-horizontal-sm: 12px;

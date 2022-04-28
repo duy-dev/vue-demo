@@ -3,11 +3,11 @@ import { App, defineAsyncComponent } from "vue";
 export function registerGlobalComponents(app: App<Element>): void {
   app.component(
     "auth-layout",
-    defineAsyncComponent(() => import("@/layouts/Auth.vue"))
+    defineAsyncComponent(() => import("@/layouts/auth.vue"))
   );
 
   app.component(
     "default-layout",
-    defineAsyncComponent(() => import("@/layouts/Default.vue"))
+    defineAsyncComponent(() => import("@/layouts/default.vue"))
   );
 }

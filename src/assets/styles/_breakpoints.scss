@@ -3,7 +3,7 @@ $screen-sm: 576px;
 $screen-md: 768px;
 $screen-lg: 992px;
 $screen-xl: 1200px;
-$screen-xl2: 1300px;
+$screen-mxl: 1300px;
 $screen-xxl: 1500px;
 
 // small mobile
@@ -41,8 +41,8 @@ $screen-xxl: 1500px;
   }
 }
 
-@mixin xl2 {
-  @media screen and (min-width: #{$screen-xl2}) {
+@mixin mxl {
+  @media screen and (min-width: #{$screen-mxl}) {
     @content;
   }
 }

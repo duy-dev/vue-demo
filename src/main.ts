@@ -7,31 +7,16 @@ import { registerGlobalComponents } from "./utils/import";
 // language
 import { i18n } from "@/assets/lang/i18n";
 
-import "./assets/styles/reset.scss";
-import "./assets/styles/tailwind.scss";
-import "./assets/styles/global.scss";
-
-import {
-  Button,
-  DatePicker,
-  ConfigProvider,
-  Select,
-  Breadcrumb,
-} from "ant-design-vue";
+import "./assets/styles/styles.scss";
 
 // style antd
-import "ant-design-vue/lib/button/style";
-import "ant-design-vue/lib/select/style";
-import "ant-design-vue/lib/breadcrumb/style";
+import "./assets/styles/ant-design/theme.less";
+import { registerAntDesignComponents } from "./utils/register-components";
 
 const app = createApp(App);
 
 app.use(i18n);
-app.use(ConfigProvider);
-app.use(Button);
-app.use(DatePicker);
-app.use(Select);
-app.use(Breadcrumb);
+registerAntDesignComponents(app);
 
 registerGlobalComponents(app);
 app.use(store).use(router).mount("#app");

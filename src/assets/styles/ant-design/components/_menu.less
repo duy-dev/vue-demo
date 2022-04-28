@@ -1,0 +1,25 @@
+@menu-dark-bg: var(--cl-primary-850);
+@menu-dark-item-active-bg: var(--cl-primary-600);
+@menu-dark-item-hover-bg: var(--cl-primary-500);
+
+@menu-inline-toplevel-item-height: 48px;
+@menu-item-vertical-margin: 0;
+@menu-item-boundary-margin: 0;
+
+.ant-menu-inline-collapsed-tooltip {
+  padding-left: 0;
+
+  .ant-tooltip-arrow {
+    display: none;
+  }
+
+  .ant-tooltip-inner {
+    display: flex;
+    align-items: center;
+    margin-left: -3px;
+    background-color: var(--cl-primary-800);
+    border-radius: 0;
+    padding: 14px 20px 12px 24px;
+    height: 48px;
+  }
+}

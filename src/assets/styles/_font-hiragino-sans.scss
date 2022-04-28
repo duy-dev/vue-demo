@@ -1,0 +1,59 @@
+/* open-sans-300 - vietnamese_latin */
+// @font-face {
+//   font-family: 'Hiragino Sans';
+//   // font-style: normal;
+//   font-weight: 300;
+//   src: url('../fonts/hiragino-sans/Hiragino-Sans-300.woff2') format('woff2'),
+//     url('../fonts/hiragino-sans/Hiragino-Sans-300.woff') format('woff'),
+//     url('../fonts/hiragino-sans/Hiragino-Sans-300.ttf') format('truetype');
+// }
+// /* open-sans-600 - vietnamese_latin */
+// @font-face {
+//   font-family: 'Hiragino Sans';
+//   // font-style: normal;
+//   font-weight: 600;
+//   src: url('../fonts/hiragino-sans/Hiragino-Sans-600.woff2') format('woff2'),
+//     url('../fonts/hiragino-sans/Hiragino-Sans-600.woff') format('woff'),
+//     url('../fonts/hiragino-sans/Hiragino-Sans-600.ttf') format('truetype');
+// }
+// /* open-sans-700 - vietnamese_latin */
+// @font-face {
+//   font-family: 'Hiragino Sans';
+//   // font-style: normal;
+//   font-weight: 800;
+//   src: url('../fonts/hiragino-sans/Hiragino-Sans-800.woff2') format('woff2'),
+//     url('../fonts/hiragino-sans/Hiragino-Sans-800.woff') format('woff'),
+//     url('../fonts/hiragino-sans/Hiragino-Sans-800.ttf') format('truetype');
+// }
+
+
+/* open-sans-300 - vietnamese_latin */
+@font-face {
+  font-family: 'Hiragino Sans';
+  // font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/hiragino-sans/Hiragino-Sans-300.woff'); /* IE9 Compat Modes */
+  src: local(''),
+    /* Modern Browsers */ url('../fonts/hiragino-sans/Hiragino-Sans-300.ttf')
+      format('truetype');
+}
+/* open-sans-600 - vietnamese_latin */
+@font-face {
+  font-family: 'Hiragino Sans';
+  // font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/hiragino-sans/Hiragino-Sans-600.woff'); /* IE9 Compat Modes */
+  src: local(''),
+    /* Modern Browsers */ url('../fonts/hiragino-sans/Hiragino-Sans-600.ttf')
+      format('truetype');
+}
+/* open-sans-700 - vietnamese_latin */
+@font-face {
+  font-family: 'Hiragino Sans';
+  // font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/hiragino-sans/Hiragino-Sans-600.woff'); /* IE9 Compat Modes */
+  src: local(''),
+    /* Modern Browsers */ url('../fonts/hiragino-sans/Hiragino-Sans-600.ttf')
+      format('truetype');
+}

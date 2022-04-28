@@ -1,17 +1,8 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div id="ao-home">
+    <div class="h-96 bg-secondary-200 mb-4"></div>
+    <!-- <div class="h-96 bg-blue-200 mb-4"></div> -->
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-
-export default defineComponent({
-  name: "Home",
-  components: {
-    HelloWorld,
-  },
-});
-</script>
+<script lang="ts" setup></script>
