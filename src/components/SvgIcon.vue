@@ -1,10 +1,10 @@
 <template>
   <component
+    :class="[{ rotating: spin }, props.class]"
     class="fill-current"
     :is="loadedIcon"
     :name="icon"
     v-bind="$attrs"
-    :class="[{ rotating: spin }, props.class]"
     :style="{
       transform: `rotate(${rotate}deg)`,
     }"

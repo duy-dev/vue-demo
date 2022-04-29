@@ -11,7 +11,7 @@ import "./assets/styles/styles.scss";
 
 // style antd
 import "./assets/styles/ant-design/theme.less";
-import { registerAntDesignComponents } from "./utils/register-components";
+import { registerAntDesignComponents } from "./utils/register-antd-components";
 
 const app = createApp(App);
 

@@ -1,7 +1,9 @@
 <template>
   <div id="Resource">
     <slot>
-      <router-view v-if="true" />
+      <Suspense>
+        <router-view v-if="true" />
+      </Suspense>
     </slot>
   </div>
 </template>

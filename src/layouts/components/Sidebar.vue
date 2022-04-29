@@ -12,38 +12,32 @@
       </div>
     </div>
 
-    <a-menu theme="dark" mode="inline">
-      <a-menu-item key="1">
+    <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
+      <a-menu-item
+        v-for="navigation in NAVIGATIONS"
+        :key="navigation.group"
+        @click="navigatePage(navigation.nameUrl)"
+      >
         <template #icon>
-          <UserOutlined />
+          <SvgIcon :icon="navigation.icon" class="w-4 h-4 text-white" />
         </template>
-        <span>受験用URLの発行</span>
-      </a-menu-item>
-      <a-menu-item key="2">
-        <template #icon>
-          <VideoCameraOutlined />
-        </template>
-        <span>発行済URL·フィードバック</span>
-      </a-menu-item>
-      <a-menu-item key="3">
-        <template #icon>
-          <UploadOutlined />
-        </template>
-        <span>アカウント設定</span>
+        <span>{{ navigation.title }}</span>
       </a-menu-item>
     </a-menu>
   </div>
 </template>
 
 <script lang="ts" setup>
-import {
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-} from "@ant-design/icons-vue";
+import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons-vue";
+import SvgIcon from "@/components/SvgIcon.vue";
+import { NAVIGATIONS } from "@/uses/constants/navigations";
 import { defineEmits, defineProps } from "@vue/runtime-core";
+import { useRoute, useRouter } from "vue-router";
+import { ref, watch } from "vue";
+
+const router = useRouter();
+const route = useRoute();
+let selectedKeys = ref<string[]>([route.meta.group]);
 const props = defineProps<{
   collapsed: boolean;
 }>();
@@ -52,8 +46,15 @@ const emit = defineEmits<{
   (e: "toggleSidebar"): void;
 }>();
 
+watch(route, (newRoute) => {
+  selectedKeys.value = [newRoute.meta.group];
+});
+
 const onToggleSidebar = () => {
   emit("toggleSidebar");
+};
+const navigatePage = (name: string | undefined) => {
+  router.push({ name: name });
 };
 </script>
 
@@ -63,5 +64,9 @@ const onToggleSidebar = () => {
   background: rgba(255, 255, 255, 0.3);
   margin: 16px 0 16px 16px;
   width: auto;
+}
+
+.ant-menu-item-icon {
+  @apply w-4 h-4;
 }
 </style>

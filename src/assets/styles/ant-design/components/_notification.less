@@ -1,0 +1,55 @@
+.ant-notification-topRight {
+  left: var(--position-left-notification);
+  top: 64px !important;
+  margin-right: 0;
+  width: auto;
+  transition: 200ms;
+  max-width: inherit;
+
+  .ant-notification-notice {
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .error {
+    border: 2px solid #D64048;
+    background: rgba(255, 204, 199, 0.75);
+    color: #D64048;
+  }
+
+  .success {
+    border: 2px solid #52C41A;
+    background: rgba(225, 247, 205, 0.75);
+    color: #52C41A;
+  }
+
+  .ant-notification-notice-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    .ant-notification-notice-with-icon {
+      display: flex;
+      align-items: center;
+      height: 28px;
+
+      .ant-notification-notice-description {
+        margin-left: 0;
+        margin-right: 24px;
+        padding: 0 10px;
+      }
+
+      .ant-notification-notice-message {
+        margin-left: 15px;
+      }
+    }
+  }
+
+  .ant-notification-notice-close {
+    position: absolute;
+    top: 22px;
+  }
+}

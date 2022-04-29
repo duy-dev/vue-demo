@@ -23,7 +23,7 @@ export default {
   actions: {
     setLanguages(
       { commit }: { commit: (type: string, payload: Locale) => void },
-      value: string
+      value: "vi" | "en"
     ): void {
       i18n.global.locale = value;
       switch (value) {

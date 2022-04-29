@@ -1,7 +1,9 @@
 <template>
   <div class="login px-10">
     <div class="mb-4">
-      <a-button type="primary" class="mr-6">Primary Button</a-button>
+      <a-button type="primary" class="mr-6" @click="showSuccessMessage"
+        >Primary Button</a-button
+      >
       <a-button type="primary" disabled>Primary(disabled)</a-button>
     </div>
     <div class="mb-4">
@@ -34,3 +36,11 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { onHttpSuccess } from "@/services/message.service";
+
+const showSuccessMessage = (): void => {
+  onHttpSuccess("ログイン時の2段階認証プロセスを無効にしました");
+};
+</script>

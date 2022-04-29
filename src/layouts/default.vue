@@ -15,6 +15,7 @@
       <a-layout-content class="p-6 bg-white h-full flex-grow overflow-y-auto">
         <div id="ao-content">
           <Breadcrumb />
+          {{}}
           <slot />
         </div>
         <Footer />
@@ -30,10 +31,18 @@ import Sidebar from "@/layouts/components/Sidebar.vue";
 import Navbar from "@/layouts/components/Navbar.vue";
 import Footer from "@/layouts/components/Footer.vue";
 
+document.documentElement.style.setProperty(
+  "--position-left-notification",
+  "250px"
+);
+const collapsed = ref<boolean>(false);
 const handleToggle = () => {
   collapsed.value = !collapsed.value;
+  document.documentElement.style.setProperty(
+    "--position-left-notification",
+    `${collapsed.value ? 80 : 250}px`
+  );
 };
-const collapsed = ref<boolean>(false);
 </script>
 
 <style lang="scss" scoped>

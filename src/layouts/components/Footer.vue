@@ -1,13 +1,13 @@
 <template>
   <div id="ao-footer" class="flex justify-end text-sm text-gray-35 mt-6">
     <div id="ao-footer-link" class="flex mr-2">
-      <router-link :to="{ name: 'about-index' }" class="px-2"
+      <router-link :to="{ name: 'home-index' }" class="px-2"
         >お問い合わせ</router-link
       >
-      <router-link :to="{ name: 'about-index' }" class="px-2"
+      <router-link :to="{ name: 'home-index' }" class="px-2"
         >個人情報保護方針</router-link
       >
-      <router-link :to="{ name: 'about-index' }" class="px-2"
+      <router-link :to="{ name: 'home-index' }" class="px-2"
         >利用規約</router-link
       >
     </div>

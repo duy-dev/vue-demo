@@ -9,3 +9,7 @@
   </div>
   <slot />
 </template>
+
+<script setup lang="ts">
+document.documentElement.style.setProperty("--position-left-notification", "0");
+</script>
