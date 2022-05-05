@@ -4,9 +4,6 @@ import router from "./router";
 import store from "./store";
 import { registerGlobalComponents } from "./utils/import";
 
-// language
-import { i18n } from "@/assets/lang/i18n";
-
 import "./assets/styles/styles.scss";
 
 // style antd
@@ -15,7 +12,6 @@ import { registerAntDesignComponents } from "./utils/register-antd-components";
 
 const app = createApp(App);
 
-app.use(i18n);
 registerAntDesignComponents(app);
 
 registerGlobalComponents(app);
