@@ -1,6 +1,6 @@
 <template>
-  <div id="ao-sidebar">
-    <div class="flex items-center justify-center h-16">
+  <div id="ao-sidebar" class="h-full flex flex-col">
+    <div class="flex items-center justify-center flex-none h-16">
       <div v-if="!props.collapsed" class="logo flex-auto" />
       <div class="text-gray-100 text-xl mx-4 flex items-center justify-center">
         <menu-unfold-outlined
@@ -12,7 +12,12 @@
       </div>
     </div>
 
-    <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
+    <a-menu
+      class="flex-auto"
+      theme="dark"
+      mode="inline"
+      v-model:selectedKeys="selectedKeys"
+    >
       <a-menu-item
         v-for="navigation in NAVIGATIONS"
         :key="navigation.group"
@@ -22,6 +27,19 @@
           <SvgIcon :icon="navigation.icon" class="w-4 h-4 text-white" />
         </template>
         <span>{{ navigation.title }}</span>
+      </a-menu-item>
+    </a-menu>
+    <a-menu
+      class="flex-none"
+      :style="{ marginBottom: 60 + 'px' }"
+      theme="dark"
+      mode="inline"
+    >
+      <a-menu-item key="logout" @click="handleLogout()">
+        <template #icon>
+          <SvgIcon icon="logout" class="w-4 h-4 text-white" />
+        </template>
+        <span>ログアウト</span>
       </a-menu-item>
     </a-menu>
   </div>
@@ -50,11 +68,15 @@ watch(route, (newRoute) => {
   selectedKeys.value = [newRoute.meta.group];
 });
 
+// Function
 const onToggleSidebar = () => {
   emit("toggleSidebar");
 };
 const navigatePage = (name: string | undefined) => {
   router.push({ name: name });
+};
+const handleLogout = (): void => {
+  navigatePage("login-index");
 };
 </script>
 

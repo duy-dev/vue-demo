@@ -9,12 +9,12 @@
       <Sidebar @toggleSidebar="handleToggle" :collapsed="collapsed" />
     </a-layout-sider>
     <a-layout class="h-screen flex flex-col">
-      <a-layout-header class="h-fit">
+      <!-- <a-layout-header class="h-fit">
         <Navbar />
-      </a-layout-header>
+      </a-layout-header> -->
       <a-layout-content class="p-6 bg-white h-full flex-grow overflow-y-auto">
         <div id="ao-content">
-          <Breadcrumb />
+          <!-- <Breadcrumb /> -->
           {{}}
           <slot />
         </div>
@@ -26,18 +26,12 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import Breadcrumb from "@/components/Breadcrumb.vue";
 import Sidebar from "@/layouts/components/Sidebar.vue";
-import Navbar from "@/layouts/components/Navbar.vue";
 import Footer from "@/layouts/components/Footer.vue";
 
 document.documentElement.style.setProperty(
   "--position-left-notification",
   "250px"
-);
-document.documentElement.style.setProperty(
-  "--position-top-notification",
-  "64px"
 );
 const collapsed = ref<boolean>(false);
 const handleToggle = () => {
@@ -51,6 +45,6 @@ const handleToggle = () => {
 
 <style lang="scss" scoped>
 #ao-content {
-  min-height: calc(100vh - 156px);
+  min-height: calc(100vh - 92px);
 }
 </style>

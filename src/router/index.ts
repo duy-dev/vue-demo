@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../pages/Home.vue";
 import Resource from "@/components/Resource.vue";
+// import Vue from "vue";
 
 export {};
 
@@ -10,6 +11,7 @@ declare module "vue-router" {
   interface RouteMeta {
     // is optional
     group: string;
+    title?: string;
   }
 }
 
@@ -21,6 +23,7 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       layout: "default",
       group: "home",
+      title: "TRANG CHỦ",
     },
   },
   {
@@ -74,6 +77,11 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+const DEFAULT_TITLE = "新傾向問題 対応力判定模試 <特許第7015084号>";
+router.afterEach((to) => {
+  document.title = `${DEFAULT_TITLE} - ${to.meta.title}` || DEFAULT_TITLE;
 });
 
 export default router;

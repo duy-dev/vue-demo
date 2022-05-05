@@ -1,7 +1,7 @@
 <template>
   <component
     :class="[{ rotating: spin }, props.class]"
-    class="fill-current"
+    class="fill-current inline"
     :is="loadedIcon"
     :name="icon"
     v-bind="$attrs"
@@ -15,7 +15,7 @@
 import { ref, defineProps, markRaw, withDefaults } from "@vue/runtime-core";
 interface Props {
   icon: string;
-  class: string;
+  class?: string;
   rotate?: string | number;
   spin?: boolean;
 }

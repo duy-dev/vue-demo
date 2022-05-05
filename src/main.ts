@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import { registerGlobalComponents } from "./utils/import";
+import { registerGlobalComponents } from "./utils/import-layout";
 
 import "./assets/styles/styles.scss";
 
