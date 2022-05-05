@@ -35,6 +35,10 @@ document.documentElement.style.setProperty(
   "--position-left-notification",
   "250px"
 );
+document.documentElement.style.setProperty(
+  "--position-top-notification",
+  "64px"
+);
 const collapsed = ref<boolean>(false);
 const handleToggle = () => {
   collapsed.value = !collapsed.value;

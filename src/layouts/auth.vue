@@ -12,4 +12,8 @@
 
 <script setup lang="ts">
 document.documentElement.style.setProperty("--position-left-notification", "0");
+document.documentElement.style.setProperty(
+  "--position-top-notification",
+  "80px"
+);
 </script>

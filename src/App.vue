@@ -27,12 +27,10 @@
 </style>
 
 <script lang="ts" setup>
-import { useStore } from "vuex";
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 
-const store = useStore();
 const route = useRoute();
-const language = computed(() => store.state.language.language);
+const language = "ja";
 const layout = computed(() => (route.meta.layout || "default") + "-layout");
 </script>
